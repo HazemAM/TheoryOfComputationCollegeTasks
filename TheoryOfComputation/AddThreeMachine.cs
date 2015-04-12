@@ -11,13 +11,33 @@ namespace TheoryOfComputation
 
 		private Dictionary<Tuple<int,char>, Tuple<int,char,Direction>> transitions;
 		private string tape;
+		private char currChar;
+		private int currPos;
 		private int currentState;
 
 		public AddThreeMachine(string input)
 		{
 			initializeTransitions();
 			this.tape = input;
+			this.currChar = this.tape[0];
+			this.currPos = 0;
 			this.currentState = 0;
+		}
+
+		public Tuple<int,char,Direction> step()
+		{
+			if(currentState == FINAL_STATE)
+				return null; //TODO: Maybe return something useful?
+
+			Tuple<int,char,Direction> output;
+			output = nextTransition(this.currChar);
+
+			write(output.Item2);
+			if(output.Item3 == Direction.RIGHT)
+				moveRight();
+			else moveLeft();
+
+			return output;
 		}
 
 		private Tuple<int,char,Direction> nextTransition(char input)
@@ -30,6 +50,39 @@ namespace TheoryOfComputation
 				return result;
 			}
 			else return null;
+		}
+
+		private void moveRight()
+		{
+			this.currPos++;
+			if(currPos >= this.tape.Length)
+				this.currChar = EMPTY;
+			else
+				this.currChar = this.tape[currPos];
+		}
+
+		private void moveLeft()
+		{
+			this.currPos--;
+			if(currPos < 0)
+				this.currChar = EMPTY;
+			else
+				this.currChar = this.tape[currPos];
+		}
+
+		private void write(char ch)
+		{
+			if(currPos == this.tape.Length)
+				this.tape += ch;
+			else if(currPos == -1){
+				this.tape = ch + this.tape;
+				this.currPos = 0;
+			}
+			else{
+				StringBuilder sb = new StringBuilder(this.tape);
+				sb[currPos] = ch;
+				this.tape = sb.ToString();
+			}
 		}
 
 		private void initializeTransitions()
@@ -79,4 +132,3 @@ namespace TheoryOfComputation
 		RIGHT, LEFT, SUSPEND
 	}
 }
-
