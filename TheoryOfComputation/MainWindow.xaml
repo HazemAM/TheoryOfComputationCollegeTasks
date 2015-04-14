@@ -7,15 +7,67 @@
 
 	<Window.Resources>
 		<!--(EMPTY FOR NOW)-->
+		<SolidColorBrush x:Key="arrowBrush" Color="Black"/>
+
+		<Style x:Key="arrow" TargetType="Path">
+			<Setter Property="Fill" Value="{StaticResource arrowBrush}"/>
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+		</Style>
 	</Window.Resources>
 
 	<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
 		<in:State Index="0" Margin="125,55,-125,-55"/>
 		<in:State Index="1" Margin="238,55,-238,-55"/>
-		<in:State Index="2" Margin="350,55,-350,-55"/>
-		<in:State Index="3" Margin="238,170,-238,-170"/>
-		<in:State Index="4" Margin="350,170,-350,-170"/>
-		<in:State Index="5" Margin="471,55,-471,-55"/>
-		<in:State Index="6" IsFinal="true" Margin="471,170,-471,-170"/>
+		<in:State Index="2" Margin="351,55,-351,-55"/>
+		<in:State Index="3" Margin="238,168,-238,-168"/>
+		<in:State Index="4" Margin="351,168,-351,-168"/>
+		<in:State Index="5" Margin="464,55,-464,-55"/>
+		<in:State Index="6" IsFinal="true" Margin="464,168,-464,-168"/>
+
+		<in:Arrow x:Name="arrow01" Length="60" Margin="165,67,-165,-67"/>
+		<in:Arrow x:Name="arrow12" Length="60" Margin="278,67,-278,-67"/>
+		<in:Arrow x:Name="arrow25" Length="60" Margin="391,67,-391,-67"/>
+		<in:Arrow x:Name="arrow34" Length="60" Margin="278,181,-278,-181"/>
+		<in:Arrow x:Name="arrow13" Length="60" Margin="192,129,-192,-129" RenderTransformOrigin="0.5,0.5">
+			<in:Arrow.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="90"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</in:Arrow.RenderTransform>
+		</in:Arrow>
+		<in:Arrow x:Name="arrow24" Length="60" Margin="305,129,-305,-129" RenderTransformOrigin="0.5,0.5">
+			<in:Arrow.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="90"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</in:Arrow.RenderTransform>
+		</in:Arrow>
+		<in:Arrow x:Name="arrow56" Length="60" Margin="418,129,-418,-129" RenderTransformOrigin="0.5,0.5">
+			<in:Arrow.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="90"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</in:Arrow.RenderTransform>
+		</in:Arrow>
+		<in:Arrow x:Name="arrow45" Length="108" Margin="378,125,-378,-125" RenderTransformOrigin="0.5,0.5">
+			<in:Arrow.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="-45"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</in:Arrow.RenderTransform>
+		</in:Arrow>
 	</Grid>
 </Window>

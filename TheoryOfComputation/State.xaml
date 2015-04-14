@@ -37,7 +37,7 @@
 		</Style>
 	</UserControl.Resources>
 	
-    <Grid>
+    <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
 		<Ellipse Style="{StaticResource stateCircle}"/>
 		<Ellipse x:Name="finalIndicator" Style="{StaticResource stateCircleFinal}" Visibility="Hidden"/>
 		<TextBlock x:Name="label" Style="{StaticResource stateLabel}"/>
