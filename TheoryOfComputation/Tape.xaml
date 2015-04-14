@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="TheoryOfComputation.Tape"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+			 xmlns:in="clr-namespace:TheoryOfComputation"
+             d:DesignHeight="300" d:DesignWidth="700">
+    <Grid>
+		<in:Arrow x:Name="tapeArrow" VerticalAlignment="Center" HorizontalAlignment="Left" Length="15" Margin="5,0,0,65" RenderTransformOrigin="0.5,0.5">
+			<in:Arrow.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="90"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</in:Arrow.RenderTransform>
+		</in:Arrow>
+		<ItemsControl VerticalAlignment="Center" HorizontalAlignment="Left">
+			<DockPanel x:Name="tape">
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText/>
+				<in:BorderText Last="true"/>
+			</DockPanel>
+		</ItemsControl>
+	</Grid>
+</UserControl>

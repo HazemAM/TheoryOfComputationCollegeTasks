@@ -20,6 +20,8 @@ namespace TheoryOfComputation
 			do{
 				output = machine.step();
 			} while(output != null && output.Item1 != AddThreeMachine.FINAL_STATE);
+
+			tape.start("1001");
 		}
 	}
 }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:in="clr-namespace:TheoryOfComputation"
         Title="Add Three Turing Machine"
-		Height="466" Width="650">
+		Height="466" Width="658">
 
 	<Window.Resources>
 		<Style x:Key="trans" TargetType="TextBlock">
@@ -112,42 +112,6 @@
 			<TextBlock Text="1/0,L" Style="{StaticResource trans}" Margin="330,264,-236,-239"/>
 		</Grid>
 
-		<in:Arrow HorizontalAlignment="Left" VerticalAlignment="Bottom" Length="15" Margin="258,0,0,-322" RenderTransformOrigin="0.5,0.5">
-			<in:Arrow.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="90"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</in:Arrow.RenderTransform>
-		</in:Arrow>
-		<ItemsControl HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,-360">
-			<DockPanel x:Name="tape">
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText Text="1"/>
-				<in:BorderText Text="0"/>
-				<in:BorderText Text="0"/>
-				<in:BorderText Text="1"/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText Last="true"/>
-			</DockPanel>
-		</ItemsControl>
+		<in:Tape x:Name="tape" Margin="0,362,0,-362"/>
 	</Grid>
 </Window>
