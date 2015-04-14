@@ -24,6 +24,10 @@ namespace TheoryOfComputation
 			tape.start("1001");
 			canvas.highlightState(0);
 			canvas.highlightState(1);
+			canvas.highlightState(6);
+
+			canvas.highlightArrow(0,1);
+			canvas.highlightArrow(4,4);
 		}
 	}
 }

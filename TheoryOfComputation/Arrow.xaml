@@ -5,10 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="15" d:DesignWidth="70">
+	
+	<UserControl.Resources>
+		<SolidColorBrush x:Key="arrowBrush" Color="Black"/>
+	</UserControl.Resources>
 
 	<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
-		<Line x:Name="line" Stroke="Black" StrokeThickness="3" StrokeMiterLimit="10" X1="0" Y1="7.5" X2="57" Y2="7.5"/>
-		<Polygon x:Name="head" Fill="Black" Points="0.466,12.906 3.613,7.5 0.466,2.094 18.023,7.5" Margin="52,0,-52,0"/>
+		<Line x:Name="line" Stroke="{DynamicResource arrowBrush}" StrokeThickness="3" StrokeMiterLimit="10" X1="0" Y1="7.5" X2="57" Y2="7.5"/>
+		<Polygon x:Name="head" Fill="{DynamicResource arrowBrush}" Points="0.466,12.906 3.613,7.5 0.466,2.094 18.023,7.5" Margin="52,0,-52,0"/>
 	</Grid>
 	
 </UserControl>
