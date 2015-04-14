@@ -53,6 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddThreeMachineUI.xaml.cs">
+      <DependentUpon>AddThreeMachineUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ArcArrow.xaml.cs">
       <DependentUpon>ArcArrow.xaml</DependentUpon>
     </Compile>
@@ -68,6 +71,10 @@
     <Compile Include="Tape.xaml.cs">
       <DependentUpon>Tape.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddThreeMachineUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ArcArrow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
