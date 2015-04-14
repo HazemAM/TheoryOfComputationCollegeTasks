@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Media;
 
 namespace TheoryOfComputation
 {
@@ -24,6 +25,24 @@ namespace TheoryOfComputation
 		public State()
 		{
 			InitializeComponent();
+		}
+
+		public void highlight()
+		{
+			SolidColorBrush circleBrush = (SolidColorBrush)this.FindResource("circleBrush");
+			circleBrush.Color = Color.FromRgb(0,140,255);
+
+			SolidColorBrush labelBrush = (SolidColorBrush)this.FindResource("labelBrush");
+			labelBrush.Color = Color.FromRgb(255,255,255);
+		}
+
+		public void dehighlight()
+		{
+			SolidColorBrush circleBrush = (SolidColorBrush)this.FindResource("circleBrush");
+			circleBrush.Color = Color.FromArgb(0,0,0,0);
+
+			SolidColorBrush labelBrush = (SolidColorBrush)this.FindResource("labelBrush");
+			labelBrush.Color = Color.FromRgb(0,0,0);
 		}
 	}
 }

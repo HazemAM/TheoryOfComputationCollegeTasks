@@ -18,13 +18,13 @@
 	
 		<Grid VerticalAlignment="Top" HorizontalAlignment="Left">
 			<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
-				<in:State Index="0" Margin="102,83,-102,-83"/>
-				<in:State Index="1" Margin="215,83,-215,-83"/>
-				<in:State Index="2" Margin="328,83,-328,-83"/>
-				<in:State Index="3" Margin="215,196,-215,-196"/>
-				<in:State Index="4" Margin="328,196,-328,-196"/>
-				<in:State Index="5" Margin="458,83,-458,-83"/>
-				<in:State Index="6" IsFinal="true" Margin="458,196,-458,-196"/>
+				<in:State x:Name="state0" Index="0" Margin="102,83,-102,-83"/>
+				<in:State x:Name="state1" Index="1" Margin="215,83,-215,-83"/>
+				<in:State x:Name="state2" Index="2" Margin="328,83,-328,-83"/>
+				<in:State x:Name="state3" Index="3" Margin="215,196,-215,-196"/>
+				<in:State x:Name="state4" Index="4" Margin="328,196,-328,-196"/>
+				<in:State x:Name="state5" Index="5" Margin="458,83,-458,-83"/>
+				<in:State x:Name="state6" Index="6" IsFinal="true" Margin="458,196,-458,-196"/>
 
 				<in:Arrow x:Name="arrow01" Length="60" Margin="142,95,-142,-95"/>
 				<in:Arrow x:Name="arrow12" Length="60" Margin="255,95,-255,-95"/>

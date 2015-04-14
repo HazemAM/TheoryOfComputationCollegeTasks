@@ -22,6 +22,8 @@ namespace TheoryOfComputation
 			} while(output != null && output.Item1 != AddThreeMachine.FINAL_STATE);
 
 			tape.start("1001");
+			canvas.highlightState(0);
+			canvas.highlightState(1);
 		}
 	}
 }
