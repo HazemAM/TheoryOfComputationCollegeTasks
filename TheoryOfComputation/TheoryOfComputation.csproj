@@ -59,6 +59,9 @@
     <Compile Include="Arrow.xaml.cs">
       <DependentUpon>Arrow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BorderText.xaml.cs">
+      <DependentUpon>BorderText.xaml</DependentUpon>
+    </Compile>
     <Compile Include="State.xaml.cs">
       <DependentUpon>State.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Arrow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BorderText.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
