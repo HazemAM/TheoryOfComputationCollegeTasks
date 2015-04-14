@@ -29,15 +29,34 @@ namespace TheoryOfComputation
 			tape.start(input);
 
 			buttonStep.IsEnabled = true;
+			buttonFinish.IsEnabled = true;
 		}
 
 		private void buttonStep_Click(object sender, RoutedEventArgs e)
 		{
 			Tuple<int,char,Direction> output;
 
-			output = machine.step();
-			if(output != null)
+			if((output = machine.step()) != null)
 				handleStep(output);
+			if(output.Item1 == AddThreeMachine.FINAL_STATE)
+				disableButtons();
+		}
+
+		private void buttonFinish_Click(object sender, RoutedEventArgs e)
+		{
+			Tuple<int,char,Direction> output;
+
+			//TODO: Something similar to 'buttonStep_Click' (based on FINAL_STATE)?
+			while((output = machine.step()) != null)
+				handleStep(output);
+
+			disableButtons();
+		}
+
+		private void disableButtons()
+		{
+			buttonStep.IsEnabled = false;
+			buttonFinish.IsEnabled = false;
 		}
 
 		private void handleStep(Tuple<int, char, Direction> output)

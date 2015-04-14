@@ -11,5 +11,6 @@
 		<TextBox x:Name="textInput" Text="010" HorizontalAlignment="Left" Height="23" Margin="19,420,0,-345" TextWrapping="Wrap" VerticalAlignment="Top" Width="58"/>
 		<Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="82,420,0,-345" VerticalAlignment="Top" Width="75" Height="23" Click="buttonStart_Click"/>
 		<Button x:Name="buttonStep" IsEnabled="False" Content="Step" HorizontalAlignment="Left" Margin="199,420,0,-345" VerticalAlignment="Top" Width="48" Height="23" Click="buttonStep_Click"/>
+		<Button x:Name="buttonFinish" IsEnabled="False" Content="Finish" HorizontalAlignment="Left" Margin="252,420,0,-345" VerticalAlignment="Top" Width="48" Height="23" Click="buttonFinish_Click"/>
 	</Grid>
 </Window>
