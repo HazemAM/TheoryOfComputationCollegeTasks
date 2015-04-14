@@ -69,5 +69,28 @@
 				</TransformGroup>
 			</in:Arrow.RenderTransform>
 		</in:Arrow>
+
+		<in:ArcArrow x:Name="arrow44" Margin="342,191,-279,-191" RenderTransformOrigin="0.5,0.5">
+			<in:ArcArrow.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="180"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</in:ArcArrow.RenderTransform>
+		</in:ArcArrow>
+		<in:ArcArrow x:Name="arrow55" Margin="486,62,-423,-62" RenderTransformOrigin="0.5,0.5">
+			<in:ArcArrow.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform Angle="90"/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</in:ArcArrow.RenderTransform>
+		</in:ArcArrow>
+		<in:ArcArrow x:Name="arrow00" Margin="130,31,-68,-31" RenderTransformOrigin="0.5,0.5">
+		</in:ArcArrow>
 	</Grid>
 </Window>

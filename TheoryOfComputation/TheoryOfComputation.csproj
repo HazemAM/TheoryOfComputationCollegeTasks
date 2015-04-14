@@ -53,12 +53,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ArcArrow.xaml.cs">
+      <DependentUpon>ArcArrow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Arrow.xaml.cs">
       <DependentUpon>Arrow.xaml</DependentUpon>
     </Compile>
     <Compile Include="State.xaml.cs">
       <DependentUpon>State.xaml</DependentUpon>
     </Compile>
+    <Page Include="ArcArrow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Arrow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
