@@ -12,7 +12,7 @@ namespace TheoryOfComputation
 		char[] input;
 		const int INITIAL = 5;
 		const int BLOCK_SIZE = 28;
-		const int TOTAL_BLOCKS = 23;
+		const int TOTAL_BLOCKS = 22; //0-based.
 
 		int currentHeadPos = INITIAL;
 
@@ -28,20 +28,36 @@ namespace TheoryOfComputation
 			int headPos = TOTAL_BLOCKS / 2 - input.Length / 2 + 1;
 			moveHeadToBlock(headPos);
 
-			writeOnTape(input);
+			writeOnTape(input, currentHeadPos);
 		}
 
-		private void writeOnTape(string input)
+		private void writeOnTape(string input, int startPos)
 		{
 			for(int i=0; i < input.Length; i++)
-				(tape.Children[currentHeadPos + i] as BorderText).Text = input[i].ToString();
+				(tape.Children[startPos + i] as BorderText).Text = input[i].ToString();
 		}
 
-		/// <param name="index">1-based block index.</param>
+		/// <param name="index">0-based block index.</param>
 		private void moveHeadToBlock(int index){
 			tapeArrow.Margin = new Thickness(INITIAL + BLOCK_SIZE * index,
 				tapeArrow.Margin.Top, tapeArrow.Margin.Right, tapeArrow.Margin.Bottom);
 			currentHeadPos = index;
+		}
+
+		public void moveRight(){
+			if(currentHeadPos + 1 > TOTAL_BLOCKS)
+				throw new ArgumentOutOfRangeException("Out of GUI tape blocks");
+			moveHeadToBlock(currentHeadPos + 1);
+		}
+
+		public void moveLeft(){
+			if(currentHeadPos - 1 < 0)
+				throw new ArgumentOutOfRangeException("Out of GUI tape blocks");
+			moveHeadToBlock(currentHeadPos - 1);
+		}
+
+		public void write(char ch){
+			(tape.Children[currentHeadPos] as BorderText).Text = ch.ToString();
 		}
 	}
 }
