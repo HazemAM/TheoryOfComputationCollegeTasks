@@ -3,10 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:in="clr-namespace:TheoryOfComputation"
         Title="Add Three Turing Machine"
-		Height="466" Width="686" ResizeMode="NoResize">
+		Height="490" Width="686" ResizeMode="NoResize">
 
 	<Grid VerticalAlignment="Top" HorizontalAlignment="Left">
 		<in:AddThreeMachineUI x:Name="canvas"/>
-		<in:Tape x:Name="tape" Margin="0,362,0,-362"/>
+		<in:Tape x:Name="tape" Margin="0,322,0,-322"/>
+		<TextBox x:Name="textInput" Text="010" HorizontalAlignment="Left" Height="23" Margin="19,420,0,-345" TextWrapping="Wrap" VerticalAlignment="Top" Width="58"/>
+		<Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="82,420,0,-345" VerticalAlignment="Top" Width="75" Height="23" Click="buttonStart_Click"/>
+		<Button x:Name="buttonStep" IsEnabled="False" Content="Step" HorizontalAlignment="Left" Margin="199,420,0,-345" VerticalAlignment="Top" Width="48" Height="23" Click="buttonStep_Click"/>
 	</Grid>
 </Window>

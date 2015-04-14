@@ -29,20 +29,20 @@ namespace TheoryOfComputation
 
 		public void highlight()
 		{
-			SolidColorBrush circleBrush = (SolidColorBrush)this.FindResource("circleBrush");
-			circleBrush.Color = Color.FromRgb(0,140,255);
+			SolidColorBrush circleBrush = new SolidColorBrush(Color.FromRgb(0,140,255));
+			this.Resources["circleBrush"] = circleBrush;
 
-			SolidColorBrush labelBrush = (SolidColorBrush)this.FindResource("labelBrush");
-			labelBrush.Color = Color.FromRgb(255,255,255);
+			SolidColorBrush labelBrush = new SolidColorBrush(Color.FromRgb(255,255,255));
+			this.Resources["labelBrush"] = labelBrush;
 		}
 
 		public void dehighlight()
 		{
-			SolidColorBrush circleBrush = (SolidColorBrush)this.FindResource("circleBrush");
-			circleBrush.Color = Color.FromArgb(0,0,0,0);
+			SolidColorBrush circleBrush = new SolidColorBrush(Color.FromArgb(0,0,0,0));
+			this.Resources["circleBrush"] = circleBrush;
 
-			SolidColorBrush labelBrush = (SolidColorBrush)this.FindResource("labelBrush");
-			labelBrush.Color = Color.FromRgb(0,0,0);
+			SolidColorBrush labelBrush = new SolidColorBrush(Color.FromRgb(0,0,0));
+			this.Resources["labelBrush"] = labelBrush;
 		}
 	}
 }

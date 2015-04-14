@@ -29,11 +29,13 @@ namespace TheoryOfComputation
 			int headPos = this.totalBlocks / 2 - input.Length / 2 + 1;
 			moveHeadToBlock(headPos);
 
-			writeOnTape(input, this.currentHeadPos);
+			initializeInput(input, this.currentHeadPos);
 		}
 
-		private void writeOnTape(string input, int startPos)
+		private void initializeInput(string input, int startPos)
 		{
+			for(int i=0; i < totalBlocks; i++)
+				(tape.Children[i] as BorderText).Text = string.Empty;
 			for(int i=0; i < input.Length; i++)
 				(tape.Children[startPos + i] as BorderText).Text = input[i].ToString();
 		}

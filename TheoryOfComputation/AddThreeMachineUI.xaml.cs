@@ -84,5 +84,11 @@ namespace TheoryOfComputation
 			arrow55.dehighlight();
 			arrow56.dehighlight();
 		}
+
+		public void reset()
+		{
+			dehighlightAllStates();
+			dehighlightAllArrows();
+		}
 	}
 }
