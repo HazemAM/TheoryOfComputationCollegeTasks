@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="15" d:DesignWidth="70">
 
-	<Grid VerticalAlignment="Top" HorizontalAlignment="Left">
+	<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
 		<Line x:Name="line" Stroke="Black" StrokeThickness="3" StrokeMiterLimit="10" X1="0" Y1="7.5" X2="57" Y2="7.5"/>
 		<Polygon x:Name="head" Fill="Black" Points="0.466,12.906 3.613,7.5 0.466,2.094 18.023,7.5" Margin="52,0,-52,0"/>
 	</Grid>

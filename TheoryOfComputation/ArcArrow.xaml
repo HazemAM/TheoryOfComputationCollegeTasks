@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="150" d:DesignWidth="150">
 
-	<Grid VerticalAlignment="Top" HorizontalAlignment="Left">
+	<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
 		<Path x:Name="line" Stroke="Black" StrokeThickness="3">
 			<Path.Data>
 				<PathGeometry>
