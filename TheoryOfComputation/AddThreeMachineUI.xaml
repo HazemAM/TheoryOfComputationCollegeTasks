@@ -7,13 +7,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
 
 	<UserControl.Resources>
-		<Style x:Key="trans" TargetType="TextBlock">
-			<Setter Property="FontFamily" Value="Courier New"/>
-			<Setter Property="FontWeight" Value="ExtraBlack"/>
-			<Setter Property="FontSize" Value="13"/>
-			<Setter Property="Width" Value="60"/>
-			<Setter Property="Height" Value="15"/>
-		</Style>
+		<!-- (Empty for now) -->
 	</UserControl.Resources>
 	
 		<Grid VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -94,23 +88,23 @@
 			</Grid>
 
 			<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
-				<TextBlock Text="0/0,R" Style="{StaticResource trans}" Margin="105,25,-11,0"/>
-				<TextBlock Text="1/1,R" Style="{StaticResource trans}" Margin="105,39,-11,-14"/>
-				<TextBlock Text="▯/▯,L" Style="{StaticResource trans}" Margin="151,79,-57,-54"/>
-				<TextBlock Text="0/1,L" Style="{StaticResource trans}" Margin="265,79,-171,-54"/>
-				<TextBlock Text="▯/1,L" Style="{StaticResource trans}" Margin="385,79,-291,-54"/>
-				<TextBlock Text="0/1,L" Style="{StaticResource trans}" Margin="385,64,-302,-39"/>
-				<TextBlock Text="1/1,L" Style="{StaticResource trans}" Margin="526,102,-432,-77"/>
-				<TextBlock Text="0/0,L" Style="{StaticResource trans}" Margin="526,87,-432,-62"/>
-				<TextBlock Text="▯/▯,R" Style="{StaticResource trans}" Margin="491,149,-397,-124"/>
-				<TextBlock Text="▯/1,L" Style="{StaticResource trans}" Margin="370,146,-276,-121"/>
-				<TextBlock Text="0/1,L" Style="{StaticResource trans}" Margin="375,130,-281,-105"/>
-				<TextBlock Text="1/0,L" Style="{StaticResource trans}" Margin="296,144,-202,-119"/>
-				<TextBlock Text="1/0,L" Style="{StaticResource trans}" Margin="183,144,-89,-119"/>
-				<TextBlock Text="1/1,L" Style="{StaticResource trans}" Margin="265,224,-171,-199"/>
-				<TextBlock Text="0/0,L" Style="{StaticResource trans}" Margin="265,240,-171,-215"/>
-				<TextBlock Text="▯/0,L" Style="{StaticResource trans}" Margin="260,255,-166,-230"/>
-				<TextBlock Text="1/0,L" Style="{StaticResource trans}" Margin="330,264,-236,-239"/>
+				<in:TransitionLabel x:Name="func00" Text="0/0,R" Margin="105,25,-11,0"/>
+				<in:TransitionLabel x:Name="func01" Text="1/1,R" Margin="105,39,-11,-14"/>
+				<in:TransitionLabel x:Name="func0E" Text="▯/▯,L" Margin="151,79,-57,-54"/>
+				<in:TransitionLabel x:Name="func10" Text="0/1,L" Margin="265,79,-171,-54"/>
+				<in:TransitionLabel x:Name="func2E" Text="▯/1,L" Margin="385,79,-291,-54"/>
+				<in:TransitionLabel x:Name="func20" Text="0/1,L" Margin="385,64,-302,-39"/>
+				<in:TransitionLabel x:Name="func51" Text="1/1,L" Margin="526,102,-432,-77"/>
+				<in:TransitionLabel x:Name="func50" Text="0/0,L" Margin="526,87,-432,-62"/>
+				<in:TransitionLabel x:Name="func5E" Text="▯/▯,R" Margin="491,149,-397,-124"/>
+				<in:TransitionLabel x:Name="func4E" Text="▯/1,L" Margin="370,146,-276,-121"/>
+				<in:TransitionLabel x:Name="func40" Text="0/1,L" Margin="375,130,-281,-105"/>
+				<in:TransitionLabel x:Name="func21" Text="1/0,L" Margin="296,144,-202,-119"/>
+				<in:TransitionLabel x:Name="func11" Text="1/0,L" Margin="183,144,-89,-119"/>
+				<in:TransitionLabel x:Name="func31" Text="1/1,L" Margin="265,224,-171,-199"/>
+				<in:TransitionLabel x:Name="func30" Text="0/0,L" Margin="265,240,-171,-215"/>
+				<in:TransitionLabel x:Name="func3E" Text="▯/0,L" Margin="260,255,-166,-230"/>
+				<in:TransitionLabel x:Name="func41" Text="1/0,L" Margin="330,264,-236,-239"/>
 			</Grid>
 		</Grid>
 </UserControl>

@@ -71,6 +71,9 @@
     <Compile Include="Tape.xaml.cs">
       <DependentUpon>Tape.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TransitionLabel.xaml.cs">
+      <DependentUpon>TransitionLabel.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddThreeMachineUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -105,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Tape.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TransitionLabel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
