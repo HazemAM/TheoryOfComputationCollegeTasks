@@ -13,6 +13,7 @@ namespace TheoryOfComputation
 		
 		AddThreeMachine machine;
 		DispatcherTimer fastRunTimer;
+		Tuple<int,char,Direction,char> output;
 		int currentState;
 
 		public MainWindow()
@@ -39,8 +40,6 @@ namespace TheoryOfComputation
 
 		private void buttonStep_Click(object sender, RoutedEventArgs e)
 		{
-			Tuple<int,char,Direction> output;
-
 			if((output = machine.step()) != null)
 				handleStep(output);
 			if(output.Item1 == AddThreeMachine.FINAL_STATE)
@@ -49,8 +48,6 @@ namespace TheoryOfComputation
 
 		private void buttonFinish_Click(object sender, RoutedEventArgs e)
 		{
-			Tuple<int,char,Direction> output;
-
 			while((output = machine.step()) != null)
 				handleStep(output);
 
@@ -59,8 +56,6 @@ namespace TheoryOfComputation
 
 		private void buttonFastRun_Click(object sender, RoutedEventArgs e)
 		{
-			Tuple<int,char,Direction> output;
-
 			disableButtons(); //Disable the buttons while the animation is running.
 
 			fastRunTimer = new DispatcherTimer{ Interval = TimeSpan.FromSeconds(0.25) };
@@ -81,12 +76,13 @@ namespace TheoryOfComputation
 			buttonFastRun.IsEnabled = false;
 		}
 
-		private void handleStep(Tuple<int, char, Direction> output)
+		private void handleStep(Tuple<int,char,Direction,char> output)
 		{
 			if(output.Item2 != AddThreeMachine.EMPTY)
 				tape.write(output.Item2);
 			canvas.highlightState(output.Item1);
 			canvas.highlightArrow(currentState, output.Item1);
+			canvas.highlightFunction(currentState, output.Item4);
 			if(output.Item3 == Direction.RIGHT)
 				tape.moveRight();
 			else if(output.Item3 == Direction.LEFT)

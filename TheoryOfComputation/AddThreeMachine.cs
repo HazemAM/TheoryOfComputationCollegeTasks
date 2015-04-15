@@ -24,11 +24,12 @@ namespace TheoryOfComputation
 			this.currentState = 0;
 		}
 
-		public Tuple<int,char,Direction> step()
+		public Tuple<int,char,Direction,char> step()
 		{
 			if(currentState == FINAL_STATE)
 				return null; //TODO: Maybe return something useful?
 
+			char inputChar = this.currChar;
 			Tuple<int,char,Direction> output;
 			output = nextTransition(this.currChar);
 
@@ -37,7 +38,8 @@ namespace TheoryOfComputation
 				moveRight();
 			else moveLeft();
 
-			return output;
+			return new Tuple<int,char,Direction,char>
+				(output.Item1, output.Item2, output.Item3, inputChar);
 		}
 
 		private Tuple<int,char,Direction> nextTransition(char input)
