@@ -6,7 +6,7 @@
 			 xmlns:in="clr-namespace:TheoryOfComputation"
              d:DesignHeight="300" d:DesignWidth="700">
     <Grid>
-		<in:Arrow x:Name="tapeArrow" VerticalAlignment="Center" HorizontalAlignment="Left" Length="15" Margin="5,0,0,65" RenderTransformOrigin="0.5,0.5">
+		<in:Arrow x:Name="tapeArrow" VerticalAlignment="Center" HorizontalAlignment="Left" Length="15" Margin="341,0,0,65" RenderTransformOrigin="0.5,0.5">
 			<in:Arrow.RenderTransform>
 				<TransformGroup>
 					<ScaleTransform/>
