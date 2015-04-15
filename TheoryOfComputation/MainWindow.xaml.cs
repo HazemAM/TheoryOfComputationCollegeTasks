@@ -23,10 +23,17 @@ namespace TheoryOfComputation
 
 		private void buttonStart_Click(object sender, RoutedEventArgs e)
 		{
+			string input = textInput.Text;
+
+			if(input.Length >= tape.totalBlocks){
+				MessageBox.Show("The tape is virtually infinite, but this is not easy to represent graphically.\n"
+					+ "(I mean, seriously? "+ input.Length +" ain't few!)", "Too much...", MessageBoxButton.OK, MessageBoxImage.Information);
+				return;
+			}
+
 			canvas.reset();
 			currentState = 0;
 
-			string input = textInput.Text;
 			machine = new AddThreeMachine(input);
 			tape.start(input);
 
@@ -76,19 +83,24 @@ namespace TheoryOfComputation
 			buttonFastRun.IsEnabled = false;
 		}
 
-		private void handleStep(Tuple<int,char,Direction,char> output)
+		private bool handleStep(Tuple<int,char,Direction,char> output)
 		{
+			bool result;
+
 			if(output.Item2 != AddThreeMachine.EMPTY)
 				tape.write(output.Item2);
 			canvas.highlightState(output.Item1);
 			canvas.highlightArrow(currentState, output.Item1);
 			canvas.highlightFunction(currentState, output.Item4);
 			if(output.Item3 == Direction.RIGHT)
-				tape.moveRight();
+				result = tape.moveRight();
 			else if(output.Item3 == Direction.LEFT)
-				tape.moveLeft();
+				result = tape.moveLeft();
+			else result = true;
 
 			currentState = output.Item1; //New state is the new current.
+
+			return result;
 		}
 	}
 }

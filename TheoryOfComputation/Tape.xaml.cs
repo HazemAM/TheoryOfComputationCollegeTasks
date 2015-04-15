@@ -12,7 +12,7 @@ namespace TheoryOfComputation
 		char[] input;
 		const int INITIAL = 5;
 		const int BLOCK_SIZE = 28;
-		int totalBlocks;
+		public readonly int totalBlocks;
 
 		int currentHeadPos = INITIAL;
 
@@ -47,16 +47,18 @@ namespace TheoryOfComputation
 			this.currentHeadPos = index;
 		}
 
-		public void moveRight(){
+		public bool moveRight(){
 			if(this.currentHeadPos + 1 > this.totalBlocks)
-				throw new ArgumentOutOfRangeException("Out of GUI tape blocks");
+				return false; //Out of GUI tape blocks.
 			moveHeadToBlock(this.currentHeadPos + 1);
+			return true;
 		}
 
-		public void moveLeft(){
+		public bool moveLeft(){
 			if(this.currentHeadPos - 1 < 0)
-				throw new ArgumentOutOfRangeException("Out of GUI tape blocks");
+				return false; //Out of GUI tape blocks.
 			moveHeadToBlock(this.currentHeadPos - 1);
+			return true;
 		}
 
 		public void write(char ch){
