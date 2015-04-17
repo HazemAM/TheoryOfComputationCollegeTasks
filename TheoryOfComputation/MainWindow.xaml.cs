@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Threading;
 
 namespace TheoryOfComputation
@@ -101,6 +105,43 @@ namespace TheoryOfComputation
 			currentState = output.Item1; //New state is the new current.
 
 			return result;
+		}
+
+		private void Window_KeyPress(object sender, KeyEventArgs e)
+		{
+			if(e.Key == Key.Enter && !buttonStep.IsFocused && !buttonFastRun.IsFocused
+				 && !buttonFinish.IsFocused && e.IsDown){
+				e.Handled = true;
+				click(buttonStart);
+			}
+			else if(e.Key == Key.Enter && buttonStart.IsFocused && e.IsUp){
+				e.Handled = true;
+				release(buttonStart);
+			}
+
+			else if(e.Key == Key.Right && buttonStep.IsEnabled && e.IsDown){
+				e.Handled = true;
+				click(buttonStep);
+
+				if(!buttonStep.IsEnabled)
+					buttonStart.Focus();
+			}
+			else if(e.Key == Key.Right && e.IsUp){
+				e.Handled = true;
+				release(buttonStep);
+			}
+		}
+
+		private void click(Button button)
+		{
+			button.Focus();
+			button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent));
+			typeof(Button).GetMethod("set_IsPressed", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(button, new object[] { true });
+		}
+
+		private void release(Button button)
+		{
+			typeof(Button).GetMethod("set_IsPressed", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(button, new object[] { false });
 		}
 	}
 }

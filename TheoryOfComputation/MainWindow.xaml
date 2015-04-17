@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		xmlns:in="clr-namespace:TheoryOfComputation"
         Title="Add Three Turing Machine"
-		Height="490" Width="686" ResizeMode="NoResize">
+		Height="490" Width="686" ResizeMode="NoResize"
+		KeyDown="Window_KeyPress" KeyUp="Window_KeyPress">
 
 	<Grid VerticalAlignment="Top" HorizontalAlignment="Left">
 		<in:AddThreeMachineUI x:Name="canvas"/>
