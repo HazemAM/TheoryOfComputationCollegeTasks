@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
+using System.Windows.Threading;
 
 namespace TheoryOfComputation
 {
@@ -13,8 +15,9 @@ namespace TheoryOfComputation
 		char[] input;
 		const int INITIAL = 5;
 		const int BLOCK_SIZE = 28;
-		public int totalBlocks;
+		const int EXPANSION = 3;
 
+		public int totalBlocks;
 		int currentHeadPos = INITIAL;
 
 		Storyboard scrollStoryboard;
@@ -28,7 +31,7 @@ namespace TheoryOfComputation
 
 		private void setupElements()
 		{
-			this.totalBlocks = tape.Children.Count - 1;
+			updateTotalBlocks();
 
 			scrollStoryboard = (Storyboard)this.Resources["scrollStoryboard"];
 			scrollAnimation = (DoubleAnimation)this.Resources["scrollAnimation"];
@@ -60,17 +63,73 @@ namespace TheoryOfComputation
 		}
 
 		public bool moveRight(){
-			if(this.currentHeadPos + 1 > this.totalBlocks)
-				return false; //Out of GUI tape blocks.
+			while(this.currentHeadPos + 1 > this.totalBlocks)
+				expandRight();
+
 			moveHeadToBlock(this.currentHeadPos + 1);
+			scrollRight();
+
 			return true;
 		}
 
 		public bool moveLeft(){
-			if(this.currentHeadPos - 1 < 0)
-				return false; //Out of GUI tape blocks.
+			while(this.currentHeadPos - 1 < 0)
+				expandLeft();
+
 			moveHeadToBlock(this.currentHeadPos - 1);
+			scrollLeft();
+
 			return true;
+		}
+
+		private void expandRight()
+		{
+			(tape.Children[tape.Children.Count - 1] as BorderText).Last = false;
+			for(int i=0; i < EXPANSION; i++)
+				tape.Children.Add(new BorderText());
+			(tape.Children[tape.Children.Count - 1] as BorderText).Last = true;
+
+			updateTotalBlocks();
+		}
+
+		private void expandLeft()
+		{
+			for(int i=0; i < EXPANSION; i++)
+				tape.Children.Insert(0, new BorderText());
+			this.currentHeadPos += EXPANSION;
+
+			updateTotalBlocks();
+		}
+
+		private void scrollRight()
+		{
+			//Required timer for updating 'ScrollableWidth' to use in the animation:
+			DispatcherTimer noteScrollTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(1) };
+			noteScrollTimer.Tick += (source, args) =>
+			{
+				scrollAnimation.To = scroller.HorizontalOffset + BLOCK_SIZE;
+				scrollStoryboard.Begin();
+				noteScrollTimer.Stop();
+			};
+			noteScrollTimer.Start();
+		}
+
+		private void scrollLeft()
+		{
+			//Required timer for updating 'ScrollableWidth' to use in the animation:
+			DispatcherTimer noteScrollTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(1) };
+			noteScrollTimer.Tick += (source, args) =>
+			{
+				scrollAnimation.To = scroller.HorizontalOffset - BLOCK_SIZE;
+				scrollStoryboard.Begin();
+				noteScrollTimer.Stop();
+			};
+			noteScrollTimer.Start();
+		}
+
+		private void updateTotalBlocks()
+		{
+			this.totalBlocks = tape.Children.Count - 1;
 		}
 
 		public void write(char ch){

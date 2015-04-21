@@ -18,7 +18,9 @@ namespace TheoryOfComputation
 		public bool Last
 		{
 			get { return Last; }
-			set { border.BorderThickness = new Thickness(0,2,0,2); }
+			set { border.BorderThickness = value
+				? new Thickness(0,2,0,2)
+				: new Thickness(0,2,2,2); }
 		}
 
 		public BorderText()
