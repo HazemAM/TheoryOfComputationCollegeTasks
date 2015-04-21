@@ -8,6 +8,16 @@
 
 	<UserControl.Resources>
 		<SolidColorBrush x:Key="arrowBrush" Color="Black"/>
+
+		<Storyboard x:Key="animationOn">
+			<ColorAnimation Storyboard.TargetName="line" Storyboard.TargetProperty="(Line.Stroke).(SolidColorBrush.Color)" To="Red" Duration="0:0:0.25"/>
+			<ColorAnimation Storyboard.TargetName="head" Storyboard.TargetProperty="(Polygon.Fill).(SolidColorBrush.Color)" To="Red" Duration="0:0:0.25"/>
+		</Storyboard>
+
+		<Storyboard x:Key="animationOff">
+			<ColorAnimation Storyboard.TargetName="line" Storyboard.TargetProperty="(Line.Stroke).(SolidColorBrush.Color)" Duration="0:0:0.1"/>
+			<ColorAnimation Storyboard.TargetName="head" Storyboard.TargetProperty="(Polygon.Fill).(SolidColorBrush.Color)" Duration="0:0:0.1"/>
+		</Storyboard>
 	</UserControl.Resources>
 
 	<Grid HorizontalAlignment="Left" VerticalAlignment="Top">
