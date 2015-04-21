@@ -9,7 +9,7 @@
 	<Grid VerticalAlignment="Top" HorizontalAlignment="Left">
 		<in:AddThreeMachineUI x:Name="canvas"/>
 		<in:Tape x:Name="tape" Margin="0,310,0,-282"/>
-		<TextBox x:Name="textInput" Text="010" ToolTip="Tape input" MaxLines="1" HorizontalAlignment="Left" Height="23" Margin="19,420,0,-345" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
+		<TextBox x:Name="textInput" Text="010" ToolTip="Tape input" HorizontalAlignment="Left" Height="50" Margin="19,393,0,-344" TextWrapping="Wrap" VerticalAlignment="Top" Width="151"/>
 		<Button x:Name="buttonStart" Content="Start" HorizontalAlignment="Left" Margin="175,420,0,-345" VerticalAlignment="Top" Width="75" Height="23" Click="buttonStart_Click"/>
 		<Button x:Name="buttonStep" IsEnabled="False" Content="Step" HorizontalAlignment="Left" Margin="292,420,0,-345" VerticalAlignment="Top" Width="48" Height="23" Click="buttonStep_Click"/>
 		<Button x:Name="buttonFinish" IsEnabled="False" Content="Finish" HorizontalAlignment="Left" Margin="345,420,0,-345" VerticalAlignment="Top" Width="48" Height="23" Click="buttonFinish_Click"/>

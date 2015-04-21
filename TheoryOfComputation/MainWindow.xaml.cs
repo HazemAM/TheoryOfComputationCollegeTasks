@@ -29,10 +29,9 @@ namespace TheoryOfComputation
 		{
 			string input = textInput.Text;
 
-			if(input.Length >= tape.totalBlocks){
-				MessageBox.Show("The tape is virtually infinite, but this is not easy to represent graphically.\n"
-					+ "(I mean, seriously? "+ input.Length +" ain't few!)", "Too much...", MessageBoxButton.OK, MessageBoxImage.Information);
-				return;
+			while(input.Length >= tape.totalBlocks){
+				tape.expandRight();
+				tape.expandLeft();
 			}
 
 			canvas.reset();

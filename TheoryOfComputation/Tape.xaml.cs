@@ -15,10 +15,12 @@ namespace TheoryOfComputation
 		char[] input;
 		const int INITIAL = 5;
 		const int BLOCK_SIZE = 28;
-		const int EXPANSION = 3;
+		const int EXPANSION = 2;
 
 		public int totalBlocks;
 		int currentHeadPos = INITIAL;
+
+		double globalArrowOffset = 0;
 
 		Storyboard scrollStoryboard;
 		DoubleAnimation scrollAnimation;
@@ -82,7 +84,7 @@ namespace TheoryOfComputation
 			return true;
 		}
 
-		private void expandRight()
+		public void expandRight()
 		{
 			(tape.Children[tape.Children.Count - 1] as BorderText).Last = false;
 			for(int i=0; i < EXPANSION; i++)
@@ -92,7 +94,7 @@ namespace TheoryOfComputation
 			updateTotalBlocks();
 		}
 
-		private void expandLeft()
+		public void expandLeft()
 		{
 			for(int i=0; i < EXPANSION; i++)
 				tape.Children.Insert(0, new BorderText());
@@ -107,7 +109,7 @@ namespace TheoryOfComputation
 			DispatcherTimer noteScrollTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(1) };
 			noteScrollTimer.Tick += (source, args) =>
 			{
-				scrollAnimation.To = scroller.HorizontalOffset + BLOCK_SIZE;
+				scrollAnimation.To = (globalArrowOffset += BLOCK_SIZE);
 				scrollStoryboard.Begin();
 				noteScrollTimer.Stop();
 			};
@@ -120,7 +122,7 @@ namespace TheoryOfComputation
 			DispatcherTimer noteScrollTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(1) };
 			noteScrollTimer.Tick += (source, args) =>
 			{
-				scrollAnimation.To = scroller.HorizontalOffset - BLOCK_SIZE;
+				scrollAnimation.To = (globalArrowOffset -= BLOCK_SIZE);
 				scrollStoryboard.Begin();
 				noteScrollTimer.Stop();
 			};
