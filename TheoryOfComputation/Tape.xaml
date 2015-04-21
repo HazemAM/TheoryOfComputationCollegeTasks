@@ -4,45 +4,59 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
 			 xmlns:in="clr-namespace:TheoryOfComputation"
-             d:DesignHeight="300" d:DesignWidth="700">
-    <Grid>
-		<in:Arrow x:Name="tapeArrow" VerticalAlignment="Center" HorizontalAlignment="Left" Length="15" Margin="341,0,0,65" RenderTransformOrigin="0.5,0.5">
-			<in:Arrow.RenderTransform>
-				<TransformGroup>
-					<ScaleTransform/>
-					<SkewTransform/>
-					<RotateTransform Angle="90"/>
-					<TranslateTransform/>
-				</TransformGroup>
-			</in:Arrow.RenderTransform>
-		</in:Arrow>
-		<ItemsControl VerticalAlignment="Center" HorizontalAlignment="Left">
-			<DockPanel x:Name="tape">
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText/>
-				<in:BorderText Last="true"/>
-			</DockPanel>
-		</ItemsControl>
+             d:DesignHeight="200" d:DesignWidth="700">
+
+	<UserControl.Resources>
+		<!-- Container scroll animation -->
+		<DoubleAnimation x:Key="scrollAnimation"
+			Storyboard.TargetProperty="(in:ScrollViewerUtilities.HorizontalOffset)" Duration="0:0:0.1"/>
+
+		<Storyboard x:Key="scrollStoryboard" TargetName="scroller">
+			<StaticResourceExtension ResourceKey="scrollAnimation"/>
+		</Storyboard>
+	</UserControl.Resources>
+
+	<Grid>
+		<ScrollViewer x:Name="scroller" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled" Background="Transparent">
+			<ItemsControl VerticalAlignment="Top" HorizontalAlignment="Left">
+				<in:Arrow x:Name="tapeArrow" VerticalAlignment="Center" HorizontalAlignment="Left" Length="15" Margin="341,0,0,12" RenderTransformOrigin="0.5,0.5">
+					<in:Arrow.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform/>
+							<SkewTransform/>
+							<RotateTransform Angle="90"/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</in:Arrow.RenderTransform>
+				</in:Arrow>
+
+				<DockPanel x:Name="tape">
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText/>
+					<in:BorderText Last="true"/>
+				</DockPanel>
+			</ItemsControl>
+		</ScrollViewer>
 	</Grid>
 </UserControl>

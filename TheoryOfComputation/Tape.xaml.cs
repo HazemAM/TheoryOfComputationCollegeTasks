@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace TheoryOfComputation
 {
@@ -12,14 +13,25 @@ namespace TheoryOfComputation
 		char[] input;
 		const int INITIAL = 5;
 		const int BLOCK_SIZE = 28;
-		public readonly int totalBlocks;
+		public int totalBlocks;
 
 		int currentHeadPos = INITIAL;
+
+		Storyboard scrollStoryboard;
+		DoubleAnimation scrollAnimation;
 
 		public Tape()
 		{
 			InitializeComponent();
+			setupElements();
+		}
+
+		private void setupElements()
+		{
 			this.totalBlocks = tape.Children.Count - 1;
+
+			scrollStoryboard = (Storyboard)this.Resources["scrollStoryboard"];
+			scrollAnimation = (DoubleAnimation)this.Resources["scrollAnimation"];
 		}
 
 		public void start(string input)

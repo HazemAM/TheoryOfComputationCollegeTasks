@@ -65,6 +65,7 @@
     <Compile Include="BorderText.xaml.cs">
       <DependentUpon>BorderText.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ScrollViewerUtilities.cs" />
     <Compile Include="State.xaml.cs">
       <DependentUpon>State.xaml</DependentUpon>
     </Compile>
