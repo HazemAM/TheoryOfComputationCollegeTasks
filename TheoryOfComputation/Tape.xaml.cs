@@ -45,6 +45,7 @@ namespace TheoryOfComputation
 
 			int headPos = this.totalBlocks / 2 - input.Length / 2 + 1;
 			moveHeadToBlock(headPos);
+			scrollReset();
 
 			initializeInput(input, this.currentHeadPos);
 		}
@@ -109,7 +110,7 @@ namespace TheoryOfComputation
 			DispatcherTimer noteScrollTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(1) };
 			noteScrollTimer.Tick += (source, args) =>
 			{
-				scrollAnimation.To = (globalArrowOffset += BLOCK_SIZE);
+				scrollAnimation.To = (this.globalArrowOffset += BLOCK_SIZE);
 				scrollStoryboard.Begin();
 				noteScrollTimer.Stop();
 			};
@@ -122,11 +123,17 @@ namespace TheoryOfComputation
 			DispatcherTimer noteScrollTimer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(1) };
 			noteScrollTimer.Tick += (source, args) =>
 			{
-				scrollAnimation.To = (globalArrowOffset -= BLOCK_SIZE);
+				scrollAnimation.To = (this.globalArrowOffset -= BLOCK_SIZE);
 				scrollStoryboard.Begin();
 				noteScrollTimer.Stop();
 			};
 			noteScrollTimer.Start();
+		}
+
+		private void scrollReset()
+		{
+			scrollAnimation.To = this.globalArrowOffset = 0;
+			scrollStoryboard.Begin();
 		}
 
 		private void updateTotalBlocks()
