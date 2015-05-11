@@ -162,11 +162,11 @@ namespace TheoryOfComputation
 			Color color = Color.FromRgb(0,0,0);
 
 			if(status == MachineStatus.HALT){
-				text = "Halt and accept";
+				text = "Halt";
 				color = Status.GREEN;
 			}
 			else if(status == MachineStatus.HANG){
-				text = "Hang and reject";
+				text = "Hang";
 				color = Status.RED;
 			}
 			else if(status == MachineStatus.CONTINUE){
