@@ -16,6 +16,7 @@ namespace TheoryOfComputation
 		const char EMPTY = '\0';
 		
 		AddThreeMachine machine;
+		MachineStatus status;
 		DispatcherTimer fastRunTimer;
 		Tuple<int,char,Direction,char> output;
 		int currentState;
@@ -50,15 +51,15 @@ namespace TheoryOfComputation
 
 		private void buttonStep_Click(object sender, RoutedEventArgs e)
 		{
-			if((output = machine.step()) != null)
+			if((output = machine.step(out status)) != null)
 				handleStep(output);
-			if(output.Item1 == AddThreeMachine.FINAL_STATE)
+			if(status != MachineStatus.CONTINUE) //Stop the UI when the machine hangs or halts.
 				disableButtons();
 		}
 
 		private void buttonFinish_Click(object sender, RoutedEventArgs e)
 		{
-			while((output = machine.step()) != null)
+			while((output = machine.step(out status)) != null)
 				handleStep(output);
 
 			disableButtons();
@@ -71,9 +72,9 @@ namespace TheoryOfComputation
 			fastRunTimer = new DispatcherTimer{ Interval = TimeSpan.FromSeconds(0.25) };
 			fastRunTimer.Tick += (o,ev) =>
 			{
-				if((output = machine.step()) != null)
+				if((output = machine.step(out status)) != null)
 					handleStep(output);
-				if(output.Item1 == AddThreeMachine.FINAL_STATE)
+				if(status != MachineStatus.CONTINUE)
 					fastRunTimer.IsEnabled = false;
 			};
 			fastRunTimer.IsEnabled = true;
@@ -92,9 +93,11 @@ namespace TheoryOfComputation
 
 			if(output.Item2 != AddThreeMachine.EMPTY)
 				tape.write(output.Item2);
+
 			canvas.highlightState(output.Item1);
 			canvas.highlightArrow(currentState, output.Item1);
 			canvas.highlightFunction(currentState, output.Item4);
+
 			if(output.Item3 == Direction.RIGHT)
 				result = tape.moveRight();
 			else if(output.Item3 == Direction.LEFT)
