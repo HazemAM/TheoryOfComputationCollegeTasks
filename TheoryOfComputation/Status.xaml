@@ -6,8 +6,8 @@
              d:DesignHeight="150" d:DesignWidth="150">
 
 	<DockPanel x:Name="container">
-		<Ellipse x:Name="circle" Width="8" Height="8" Fill="Red" Margin="0 1 3 0" VerticalAlignment="Center"/>
-		<TextBlock x:Name="label" Text="Hang" Foreground="Red" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Center"/>
+		<Ellipse x:Name="circle" Width="9" Height="9" Fill="Red" Margin="0 1 3 0" VerticalAlignment="Center"/>
+		<TextBlock x:Name="label" Text="Hang" Foreground="Red" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center"/>
 	</DockPanel>
 	
 </UserControl>

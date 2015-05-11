@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace TheoryOfComputation
@@ -47,20 +48,27 @@ namespace TheoryOfComputation
 
 			if(fastRunTimer != null)
 				fastRunTimer.IsEnabled = false;
+
+			statusControl.Visible = false; //Hide status currently.
 		}
 
 		private void buttonStep_Click(object sender, RoutedEventArgs e)
 		{
 			if((output = machine.step(out status)) != null)
 				handleStep(output);
-			if(status != MachineStatus.CONTINUE) //Stop the UI when the machine hangs or halts.
-				disableButtons();
+			if(status != MachineStatus.CONTINUE){
+				updateStatusControl(status);
+				disableButtons(); //Stop the UI when the machine hangs or halts.
+			}
 		}
 
 		private void buttonFinish_Click(object sender, RoutedEventArgs e)
 		{
 			while((output = machine.step(out status)) != null)
 				handleStep(output);
+
+			if(status != MachineStatus.CONTINUE)
+				updateStatusControl(status);
 
 			disableButtons();
 		}
@@ -74,8 +82,10 @@ namespace TheoryOfComputation
 			{
 				if((output = machine.step(out status)) != null)
 					handleStep(output);
-				if(status != MachineStatus.CONTINUE)
+				if(status != MachineStatus.CONTINUE){
+					updateStatusControl(status);
 					fastRunTimer.IsEnabled = false;
+				}
 			};
 			fastRunTimer.IsEnabled = true;
 		}
@@ -144,6 +154,28 @@ namespace TheoryOfComputation
 		private void release(Button button)
 		{
 			typeof(Button).GetMethod("set_IsPressed", BindingFlags.Instance | BindingFlags.NonPublic).Invoke(button, new object[] { false });
+		}
+
+		private void updateStatusControl(MachineStatus status)
+		{
+			string text = string.Empty;
+			Color color = Color.FromRgb(0,0,0);
+
+			if(status == MachineStatus.HALT){
+				text = "Halt";
+				color = Status.GREEN;
+			}
+			else if(status == MachineStatus.HANG){
+				text = "Hang";
+				color = Status.RED;
+			}
+			else if(status == MachineStatus.CONTINUE){
+				text = "Continue";
+				color = Status.YELLOW;
+			}
+
+			statusControl.updateStatus(text, color);
+			statusControl.show();
 		}
 	}
 }

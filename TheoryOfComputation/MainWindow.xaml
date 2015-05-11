@@ -14,5 +14,7 @@
 		<Button x:Name="buttonStep" IsEnabled="False" Content="Step" HorizontalAlignment="Left" Margin="292,420,0,-345" VerticalAlignment="Top" Width="48" Height="23" Click="buttonStep_Click"/>
 		<Button x:Name="buttonFinish" IsEnabled="False" Content="Finish" HorizontalAlignment="Left" Margin="345,420,0,-345" VerticalAlignment="Top" Width="48" Height="23" Click="buttonFinish_Click"/>
 		<Button x:Name="buttonFastRun" IsEnabled="False" Content="Fast Run" HorizontalAlignment="Left" Margin="398,420,0,-345" VerticalAlignment="Top" Width="60" Height="23" Click="buttonFastRun_Click"/>
+
+		<in:Status x:Name="statusControl" Visible="false" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,15,-342"/>
 	</Grid>
 </Window>
